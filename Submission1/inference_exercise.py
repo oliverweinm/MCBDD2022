@@ -27,9 +27,10 @@ def calc_tp(b,pop_inf=0.05):
 	pop_uninf = 1-pop_inf
 	return( a*pop_inf / (a*pop_inf + (1-b)*pop_uninf ) )
 
-print("Exercise 2")
+print("\nExercise 2\n The probability that Fred is infected depends while he is visiting various cities depicted below depends with differing specifity of the tests is given through the True Positive (TP)")
 for city in cities:
 	pop_inf_total = pop_inf * test_populations[city]
-	print(f"\n{city}:\nPopulation: {test_populations[city]}, Population infected: 5% ({pop_inf_total})")
+	print(f"\n{city}:\nPopulation: {test_populations[city]},\tPopulation infected: 5% ({round(pop_inf_total)} rounded)\n")
 	for i in allowed_b:
-		print(f"Sensitvity: {a}, Specificity:{i}, TP: {calc_tp(i)}")
+		TP = calc_tp(i)
+		print(f"Sensitvity: {a}, Specificity:{i},\t TP: {TP}\t Total cases of TP (rounded to nearest int): {round(TP*pop_inf_total)}")
